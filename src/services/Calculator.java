@@ -36,6 +36,50 @@ public class Calculator {
         return this.result.getValue();
     }
 
+    public Double performExpression(Operation operation) {
+        int i;
+
+        Operand operand;
+        Operand operand2;
+
+        List<Operator> operators = operation.getOperators();
+        List<Operand> operands = operation.getOperands();
+
+        while (operators.size() > 0) {
+
+            i = checkOperator(operators, "/");
+
+            if (i == 0)
+                i = checkOperator(operators, "*");
+
+            operand = operands.get(i);
+            operand2 = operands.get(i + 1);
+
+            Operator operator = operators.get(i);
+            setOperator(operator.getOperator());
+
+            this.result = new Operand(calculation(operand, operand2));
+
+            operands.remove(i > 0 ? i + 1 : 1);
+            operands.remove(i);
+
+            operation.addOperandAt(result, i);
+            operators.remove(i);
+        }
+
+        return operands.get(0).getValue();
+    }
+
+    private int checkOperator(List<Operator> operators, String operator) {
+        int i;
+
+        for (i = 0; i < operators.size(); i++) {
+            if (operators.get(i).getOperator().equals(operator))
+                return i;
+        }
+        return 0;
+    }
+
     public void setOperator(String operator) {
         this.operator = operator;
     }

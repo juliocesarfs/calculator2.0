@@ -19,7 +19,7 @@ public class testOperation {
 
         OperationController controller = new OperationController();
 
-        Double result = controller.performExpression(operation);
+        Double result = controller.performCalc(operation);
 
         System.out.print(result);
     }
