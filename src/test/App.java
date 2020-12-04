@@ -1,9 +1,9 @@
 package test;
 
-import view.Window;
+import view.WindowFrame;
 
 public class App {
     public static void main(String[] args) {
-        Window window = new Window("Calculator");
+        WindowFrame window = new WindowFrame("Calculator");
     }
 }
