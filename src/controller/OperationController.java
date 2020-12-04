@@ -17,4 +17,5 @@ public class OperationController {
     public Double performCalc(Operation operation) {
         return calculator.performExpression(operation);
     }
+
 }

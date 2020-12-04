@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class NumberTextFieldPanel extends JPanel {
-    public final NumberTextField numberText;
+    private final NumberTextField numberText;
 
     public NumberTextFieldPanel() {
         setLayout(new FlowLayout());
@@ -15,4 +15,9 @@ public class NumberTextFieldPanel extends JPanel {
         this.numberText = new NumberTextField();
         add(numberText);
     }
+
+    public NumberTextField getNumberText() {
+        return numberText;
+    }
+
 }

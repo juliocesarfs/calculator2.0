@@ -17,7 +17,7 @@ public class Screen extends JPanel {
         numberPanel = new NumberTextFieldPanel();
         add("North", numberPanel);
 
-        buttonsPanel = new ButtonsPanel();
+        buttonsPanel = new ButtonsPanel(numberPanel.getNumberText());
         add("Center", buttonsPanel);
     }
 }
